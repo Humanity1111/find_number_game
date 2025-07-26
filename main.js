@@ -122,4 +122,12 @@ generateRound() {
   }
 }
 
-window.onload = () => new FindTheNumberGame();
+window.onload = () => {
+  const tutorial = document.getElementById("tutorial");
+  const startBtn = document.getElementById("start-game-btn");
+
+  startBtn.addEventListener("click", () => {
+    tutorial.style.display = "none";
+    new FindTheNumberGame();
+  });
+};

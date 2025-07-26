@@ -6,14 +6,22 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="top-panel">
-    <div><strong>ВРЕМЯ</strong><br><span id="timer">01:00</span></div>
-    <div><strong>УРОВЕНЬ</strong><br><span id="level">1-1</span></div>
-    <div><strong>ОЧКИ</strong><br><span id="score">0</span></div>
-    <div><span>Бонус: </span><span id="bonus">1</span></div>
-    <div><span>Серия правильных ответов: </span><span id="streak">0</span></div>
+<div class="top-panel">
+  <div><strong>Время</strong><br><span id="timer">00:12</span></div>
+  <div><strong>Уровень</strong><br><span id="level">1-1</span></div>
+  <div><strong>Очки</strong><br><span id="score">0</span></div>
+  <div><strong>Бонус:</strong><br><span id="bonus">1</span></div>
+  <div><strong>Серия правильных ответов:</strong><br><span id="streak">0</span></div>
+</div>
+<div id="tutorial" class="tutorial-overlay">
+  <div class="tutorial-content">
+    <h2>Как играть</h2>
+    <p>Найди указанное число и клинки по ячейке с ним.</p>
+    <p>С повышением уровня растёт количество ячеек.</p>
+    <p>Удачи!</p>
+      <button id="start-game-btn">Начать игру</button>
   </div>
-
+</div>
   <div class="container">
     <div class="task-box">
       <p>Найдите указанное число:</p>

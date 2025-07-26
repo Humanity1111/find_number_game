@@ -5,10 +5,13 @@ class FindTheNumberGame {
     this.timerSpan = document.getElementById("timer");
     this.scoreSpan = document.getElementById("score");
     this.levelSpan = document.getElementById("level");
-
+    this.bonusDisplay = document.getElementById("bonus");
+    this.streakDisplay = document.getElementById("streak");
     this.score = 0;
     this.level = 1;
     this.timeLeft = 60;
+    this.bonus = 1;
+    this.streak = 0;
     this.timerInterval = null;
 
     this.generateRound();
@@ -45,11 +48,20 @@ class FindTheNumberGame {
     if (number === this.target) {
       el.classList.add("correct");
       this.score += 10 * this.bonus;
+      this.streak++;
+      this.bonus = 1 + Math.floor(this.streak / 2);
+
       this.scoreSpan.textContent = this.score;
       this.level++;
+      this.bonusDisplay.textContent = this.bonus;
+      this.streakDisplay.textContent = this.streak;
       setTimeout(() => this.generateRound(), 800);
     } else {
       el.classList.add("incorrect");
+      this.streak = 0;
+      this.bonus = 1;
+      this.bonusDisplay.textContent = this.bonus;
+      this.streakDisplay.textContent = this.streak;
       setTimeout(() => el.classList.remove("incorrect"), 500);
     }
   }

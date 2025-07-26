@@ -9,7 +9,7 @@ class FindTheNumberGame {
     this.streakDisplay = document.getElementById("streak");
     this.score = 0;
     this.level = 1;
-    this.timeLeft = 10;
+    this.timeLeft = 60;
     this.bonus = 1;
     this.streak = 0;
     this.timerInterval = null;
@@ -22,27 +22,42 @@ class FindTheNumberGame {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  generateRound() {
-    this.grid.innerHTML = "";
-    const numbers = new Set();
+generateRound() {
+  this.grid.innerHTML = "";
 
-    while (numbers.size < 6) {
-      numbers.add(this.getRandomInt(1, 999));
-    }
-
-    const numberArray = [...numbers];
-    this.target = numberArray[this.getRandomInt(0, numberArray.length - 1)];
-    this.targetDisplay.textContent = this.target;
-    this.levelSpan.textContent = `1-${this.level}`;
-
-    numberArray.forEach((num) => {
-      const div = document.createElement("div");
-      div.className = "number-box";
-      div.textContent = num;
-      div.addEventListener("click", () => this.handleClick(div, num));
-      this.grid.appendChild(div);
-    });
+  let rows = 2, cols = 3;
+  if (this.level >= 3) {
+    rows = 3;
+    cols = 3;
   }
+  if (this.level >= 5) {
+    rows = 4;
+    cols = 4;
+  }
+
+  const totalNumbers = rows * cols;
+  const numbers = new Set();
+  while (numbers.size < totalNumbers) {
+    numbers.add(this.getRandomInt(1, 999));
+  }
+
+  this.grid.style.gridTemplateColumns = `repeat(${cols}, 100px)`;
+  this.grid.style.gridTemplateRows = `repeat(${rows}, 100px)`;
+
+  const numberArray = [...numbers];
+  this.target = numberArray[this.getRandomInt(0, numberArray.length - 1)];
+  this.targetDisplay.textContent = this.target;
+  this.levelSpan.textContent = `1-${this.level}`;
+
+  numberArray.forEach((num) => {
+    const div = document.createElement("div");
+    div.className = "number-box";
+    div.textContent = num;
+    div.addEventListener("click", () => this.handleClick(div, num));
+    this.grid.appendChild(div);
+  });
+}
+
 
   handleClick(el, number) {
     if (number === this.target) {

@@ -8,7 +8,7 @@ body {
 }
 
 .top-panel {
-  background-color: #a6d9f3;
+  background-color: #a3dff9;
   color: #000;
   display: flex;
   justify-content: space-around;
@@ -16,9 +16,12 @@ body {
   font-size: 14px;
   font-weight: bold;
   text-align: center;
-  width: 800px;           
-  margin-left: 85%;     
-  transform: translateX(-50%); 
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  top: 0;
+  left: 0;
 }
 
 .top-panel span {

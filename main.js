@@ -9,7 +9,7 @@ class FindTheNumberGame {
     this.streakDisplay = document.getElementById("streak");
     this.score = 0;
     this.level = 1;
-    this.timeLeft = 60;
+    this.timeLeft = 10;
     this.bonus = 1;
     this.streak = 0;
     this.timerInterval = null;

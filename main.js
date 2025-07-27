@@ -98,7 +98,7 @@ generateRound() {
     overlay.className = "game-over";
     overlay.innerHTML = `
       <div class="game-over-content">
-        <h2>⏱ Время вышло!</h2>
+        <h2>Время вышло!</h2>
         <p>Ваш счёт: <strong>${this.score}</strong></p>
         <button id="restart-btn">Начать заново</button>
       </div>
